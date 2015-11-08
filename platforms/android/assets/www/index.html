@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<script src="cordova.js"></script>
+    <script src="phaser.js"></script>
+    <script src="circleFactory.js"></script>
+    <script src="ResourceManager.js"></script>
+    <script src="GameState.js"></script>
+    <script src="MenuState.js"></script>
+    <script src="Setup.js"></script>
+    <script src="Intro.js"></script>
+    <title></title>
+</head>
+<body>
+<div id="gameWindow", width="window-width", height="window-height"></div>
+    <script type="text/javascript">
+       
+        var circle;
+        var graphics;
+		var game;
+		
+		game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.CANVAS, 'gameWindow'); 
+        var totalScore = 0;
+        var difficulty = 'noob';
+        var sound = true;
+        var hiscore = 0;
+        game.state.add('gameState', GameState);
+        game.state.add('menuState', MainMenu);
+        game.state.add('setupState', SetupState);
+        game.state.add('introState', IntroState);
+        game.state.start('setupState');
+    </script>
+</body>
+</html>
